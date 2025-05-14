@@ -1,0 +1,10 @@
+<div class="d-flex flex-column" id="skills" name="Skills">
+  <div>
+    <h2>Skills</h2>
+  </div>
+  <div class="skills-box">
+    @for(skill of skills; track $index){
+    <div class="skill">{{ skill }}</div>
+    }
+  </div>
+</div>

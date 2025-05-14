@@ -1,0 +1,16 @@
+<div id="case-studies" name="Case Studies">
+  @for(case of caseStudies;track $index){
+  <div class="case-study" [style.backgroundColor]="case.color">
+    <div class="case-info">
+      <h2>{{ case.title }}</h2>
+      @for(text of case.texts;track $index){
+      <p>{{ text }}</p>
+      }
+      <app-magic-link-button [href]="'case-studies' + case.folder">View Case Study</app-magic-link-button>
+    </div>
+    <div class="case-preview">
+      <img [src]="case.folder + '/preview.png'" style="width: 100px; height: 100px" />
+    </div>
+  </div>
+  }
+</div>

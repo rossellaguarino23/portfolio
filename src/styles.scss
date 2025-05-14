@@ -1,0 +1,359 @@
+@use "bootstrap/dist/css/bootstrap.min.css";
+@font-face {
+  font-family: "Manrope";
+  src: url(/fonts/Manrope-VariableFont_wght.ttf);
+  font-weight: 100 700;
+}
+// Variables
+$black: #000;
+$white: #fff;
+$light-grey: #f9f9f9;
+$card-grey: #f0f0f0;
+$font-stack: "Manrope", sans-serif;
+
+// Global Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-stack;
+  line-height: 1.6;
+  background-color: $black;
+  color: $white;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
+  letter-spacing: 5px;
+}
+
+// Navbar
+.navbar {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $white;
+    font-family: "Anonymous Pro", monospace;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+
+    li {
+      a {
+        text-decoration: none;
+        color: $white;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        font-weight: 400;
+        transition: color 0.3s ease;
+        letter-spacing: 0.5px;
+
+        &:hover {
+          color: $card-grey;
+        }
+      }
+    }
+  }
+}
+
+// Hero Section
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65vh;
+  padding: 4rem 5vw 4rem 0;
+  background-color: $black;
+  width: 90vw;
+  margin: 0 auto;
+
+  .hero-content {
+    flex: 1;
+    max-width: 600px;
+
+    h1 {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      font-weight: 100;
+      letter-spacing: 9px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-family: "Anonymous Pro", monospace;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid $white;
+      color: $white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 700;
+      font-size: 1.1rem;
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .hero-animation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    .wave {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, #000 80%);
+      filter: blur(40px);
+      animation: pulse 6s infinite ease-in-out;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    animation: scrollBlink 1.5s infinite;
+  }
+}
+
+@keyframes scrollBlink {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(10px) rotate(45deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+// About Us Section
+.about-us {
+  padding: 8rem 2rem;
+  max-width: 900px;
+  color: #ffffff;
+  text-align: center;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  width: 90vw;
+  margin: 0 auto;
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 853px;
+    margin: 0 auto;
+    color: #ccc;
+  }
+
+  @media (max-width: 600px) {
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Services Section
+.services {
+  padding: 40px 20px;
+  background-color: $black;
+  text-align: center;
+  width: 90vw;
+  margin: 0 auto;
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+
+    .service-card {
+      background-color: $black;
+      padding: 20px;
+      border-radius: 3px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
+      max-width: 333px;
+      width: 100%;
+      padding: 1.5rem;
+      border: 2px solid $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 15px;
+
+      h3 {
+        font-size: 1.8rem;
+        line-height: 1.1;
+        margin-bottom: 11px;
+        color: $white;
+        font-family: "Anonymous Pro", monospace;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $white;
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        background-color: $white;
+        color: $black;
+        transform: scale(1.05);
+
+        h3 {
+          color: $black;
+        }
+
+        p {
+          color: $black;
+        }
+      }
+    }
+  }
+}
+.footer {
+  background-color: $black;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #fff;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+
+      a {
+        font-size: 2rem;
+        color: #fff;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        i {
+          display: inline-block;
+          width: 32px;
+          height: 32px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+
+        .icon-mail {
+          background-image: url("/assets/icons/mail.svg");
+        }
+        .icon-linkedin {
+          background-image: url("/assets/icons/linkedin.svg");
+        }
+        .icon-instagram {
+          background-image: url("/assets/icons/instagram.svg");
+        }
+      }
+    }
+
+    .footer-name {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem;
+
+    .hero-content {
+      max-width: 100%;
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    .hero-animation {
+      .wave {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}

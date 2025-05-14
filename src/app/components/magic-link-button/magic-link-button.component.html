@@ -1,0 +1,8 @@
+<div class="button">
+  <a [href]="href()" #button>
+    <ng-content></ng-content>
+  </a>
+  @for (star of stars; track $index) {
+  <span class="star" [style.left.%]="star.actual.left" [style.top.px]="star.actual.top" [style.transform]="star.actual.transform">{{ star.emoji }}</span>
+  }
+</div>

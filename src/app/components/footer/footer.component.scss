@@ -1,0 +1,11 @@
+:root{
+    --logo: rgb(250, 249, 247);
+}
+footer{
+    justify-content: center;
+    .socials{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
