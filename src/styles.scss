@@ -4,12 +4,31 @@
   src: url(/fonts/Manrope-VariableFont_wght.ttf);
   font-weight: 100 700;
 }
+@font-face {
+  font-family: "Space Grotesk";
+  src: url(/fonts/SpaceGrotesk-VariableFont_wght.ttf);
+  font-weight: 100 700;
+}
+@font-face {
+  font-family: "Inter";
+  src: url(/fonts/Inter-VariableFont_wght.ttf);
+  font-weight: 100 700;
+}
+@font-face {
+  font-family: "Inter-Italic";
+  src: url(/fonts/Inter-Italic-VariableFont_wght.ttf);
+  font-weight: 100 700;
+}
 // Variables
+$brat: #8ace00;
 $black: #000;
 $white: #fff;
 $light-grey: #f9f9f9;
 $card-grey: #f0f0f0;
-$font-stack: "Manrope", sans-serif;
+$font-title: "Space Grotesk", sans-serif;
+$font-body: "Inter", sans-serif;
+$spacing: 2rem;
+$transition-duration: 1s;
 
 // Global Styles
 * {
@@ -19,7 +38,7 @@ $font-stack: "Manrope", sans-serif;
 }
 
 body {
-  font-family: $font-stack;
+  font-family: $font-body;
   line-height: 1.6;
   background-color: $black;
   color: $white;
@@ -29,6 +48,7 @@ h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   font-weight: 200;
+  font-family: $font-title;
   letter-spacing: 5px;
 }
 
@@ -72,81 +92,83 @@ h2 {
   }
 }
 
-// Hero Section
-.hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 65vh;
-  padding: 4rem 5vw 4rem 0;
-  background-color: $black;
-  width: 90vw;
-  margin: 0 auto;
+// Variables
 
-  .hero-content {
-    flex: 1;
-    max-width: 600px;
-
-    h1 {
-      font-size: 5rem;
-      margin-bottom: 1rem;
-      font-weight: 100;
-      letter-spacing: 9px;
-    }
-
-    p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      font-family: "Anonymous Pro", monospace;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid $white;
-      color: $white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 700;
-      font-size: 1.1rem;
-
-      &:hover {
-        background-color: $white;
-        color: $black;
-        transform: scale(1.05);
-      }
-    }
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-
-  .hero-animation {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-
-    .wave {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #fff 0%, #000 80%);
-      filter: blur(40px);
-      animation: pulse 6s infinite ease-in-out;
-    }
-  }
-}
-
-@keyframes pulse {
-  0%,
   100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.1);
     opacity: 1;
+    transform: translateY(0);
   }
 }
+
+// Hero container
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $spacing;
+  overflow: hidden;
+
+  .line {
+    height: 2px;
+    background-color: $white;
+    width: auto;
+    margin-bottom: $spacing;
+    animation: expandWidth $transition-duration ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  h1,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    font-family: $font-title;
+    font-size: 6vw;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-family: $font-title;
+    font-size: 5vw;
+    font-weight: 700;
+  }
+
+  p {
+    font-family: $font-body;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-top: $spacing;
+    line-height: 1.6;
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeUp $transition-duration ease forwards;
+  }
+
+  .delay-1 {
+    animation-delay: 0.2s;
+  }
+  .delay-2 {
+    animation-delay: 0.6s;
+  }
+  .delay-3 {
+    animation-delay: 1s;
+  }
+  .delay-4 {
+    animation-delay: 1.4s;
+  }
+}
+
 .scroll-down {
   position: absolute;
   bottom: 2rem;
@@ -216,6 +238,16 @@ h2 {
     transform: translateY(0);
   }
 }
+@keyframes expandWidth {
+  from {
+    width: 0%;
+    opacity: 0.5;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
 
 // Services Section
 .services {
@@ -278,54 +310,138 @@ h2 {
     }
   }
 }
-.footer {
+.cta-section {
   background-color: $black;
-  padding: 3rem 1rem;
+  color: $white;
+  padding: 4rem 2rem;
   text-align: center;
-  color: #fff;
+  border-top: 1px solid $white;
+  border-bottom: 1px solid $white;
 
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+  .cta-subtitle {
+    font-weight: 300;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
 
-    .footer-icons {
+  .cta-title {
+    font-size: 6rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    font-family: "Space Grotesk";
+    letter-spacing: 1px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 1px solid $white;
+    border-radius: 999px;
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    // Wave effect layer
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba($white, 0.4) 0%, rgba($white, 0.6) 40%, rgba($white, 1) 100%);
+      transform: scaleY(0.3);
+      opacity: 0.6;
+      transition: bottom 0.7s ease, transform 0.7s ease;
+      z-index: 0;
+    }
+
+    &:hover::before {
+      bottom: 0;
+      transform: scaleY(1);
+    }
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+      transition: background-color 0.7s ease, color 0.7s ease;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.footer {
+  margin-top: 4rem;
+  font-size: 0.9rem;
+
+  .footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid $white;
+    border-bottom: 1px solid $white;
+    padding: 2rem 0;
+    gap: 1.5rem;
+
+    .footer-name {
+      font-weight: bold;
+    }
+
+    .footer-nav {
       display: flex;
-      justify-content: center;
       gap: 2rem;
-      margin-bottom: 1rem;
 
       a {
-        font-size: 2rem;
-        color: #fff;
-        transition: transform 0.3s ease;
+        color: $white;
+        text-decoration: none;
+        font-weight: bold;
 
         &:hover {
-          transform: scale(1.1);
-        }
-
-        i {
-          display: inline-block;
-          width: 32px;
-          height: 32px;
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
-
-        .icon-mail {
-          background-image: url("/assets/icons/mail.svg");
-        }
-        .icon-linkedin {
-          background-image: url("/assets/icons/linkedin.svg");
-        }
-        .icon-instagram {
-          background-image: url("/assets/icons/instagram.svg");
+          text-decoration: underline;
         }
       }
     }
 
-    .footer-name {
-      font-size: 0.9rem;
-      opacity: 0.8;
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        color: $white;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+
+        &:hover {
+          color: grey;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+
+    a {
+      color: $white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
