@@ -1,0 +1,24 @@
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  background: #111;
+  color: white;
+  padding: 1rem 0;
+  border-top: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+}
+
+.scroll-content {
+  display: inline-flex;
+  animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

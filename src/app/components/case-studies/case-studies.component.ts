@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { MagicLinkButtonComponent } from '../magic-link-button/magic-link-button.component';
 
 @Component({
   selector: 'app-case-studies',
-  imports: [MagicLinkButtonComponent],
+  imports: [],
   templateUrl: './case-studies.component.html',
   styleUrl: './case-studies.component.scss',
 })

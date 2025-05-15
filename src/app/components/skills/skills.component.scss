@@ -1,16 +1,10 @@
-.skills-box{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 10px;
-    row-gap: 10px;
-    border-radius: 20px;
-    background-color: var(--skills);
-    padding: 20px;
-    margin: 20px;
-    .skill{
-        padding: 10px;
-        border-radius: 10px;
-        background-color: white;
-    }
+.carousel-element {
+  h3 {
+    font-family: var(--font-title);
+    font-weight: 400;
+  }
+  img {
+    align-self: center;
+    margin: 0 2rem;
+  }
 }

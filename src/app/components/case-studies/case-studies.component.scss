@@ -1,21 +1,57 @@
-#case-studies{
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    padding: 10px;
-    margin: 10px;
-    .case-study{
-        display: flex;
-        flex-direction: row;
-        padding: 10px;
-        border-radius: 10px;
-        .case-info{
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-        }
-        .case-preview{
-            padding: 10px;
-        }
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  padding: 1.5rem;
+
+  .project-grid-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 16px;
+    margin-bottom: 1.5rem;
+  }
+  .project-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 16px;
+  }
+
+  .grid-item {
+    display: block;
+    overflow: hidden;
+    border-radius: 0.75rem;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
     }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+
+    &--large {
+      grid-column: span 1;
+      aspect-ratio: 16 / 9;
+    }
+
+    &--small {
+      aspect-ratio: 4 / 3;
+    }
+
+    &--highlight {
+      background-color: var(--brat);
+      aspect-ratio: 4 / 3;
+
+      img {
+        object-fit: contain;
+        background-color: var(--brat);
+      }
+    }
+  }
 }

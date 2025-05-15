@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExperienceComponent } from './experience.component';
+import { SkillCarouselComponent } from './skill-carousel.component';
 
-describe('ExperienceComponent', () => {
-  let component: ExperienceComponent;
-  let fixture: ComponentFixture<ExperienceComponent>;
+describe('SkillCarouselComponent', () => {
+  let component: SkillCarouselComponent;
+  let fixture: ComponentFixture<SkillCarouselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExperienceComponent]
+      imports: [SkillCarouselComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ExperienceComponent);
+    fixture = TestBed.createComponent(SkillCarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

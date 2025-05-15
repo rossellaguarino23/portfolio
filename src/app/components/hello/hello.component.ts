@@ -1,11 +1,10 @@
-import { Component, HostListener } from '@angular/core';
-import { MagicLinkButtonComponent } from '../magic-link-button/magic-link-button.component';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, debounceTime, Observable, ReplaySubject } from 'rxjs';
+import { Component, HostListener } from '@angular/core';
+import { BehaviorSubject, debounceTime, ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-hello',
-  imports: [CommonModule, MagicLinkButtonComponent],
+  imports: [CommonModule],
   templateUrl: './hello.component.html',
   styleUrl: './hello.component.scss',
 })
