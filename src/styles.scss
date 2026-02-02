@@ -46,12 +46,21 @@ body {
 h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-weight: 200;
+  font-weight: 300;
+  font-family: var(--font-title);
+  letter-spacing: -1px;
+}
+h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
   font-family: var(--font-title);
 }
-.bold {
-  font-weight: 700;
+p {
+  font-size: 1.1rem;
+  color: var(--light-grey);
+  line-height: 1.4;
 }
+
 .button {
   display: inline-block;
   padding: 1rem 2rem;
@@ -80,7 +89,7 @@ h2 {
 }
 
 .line {
-  height: 2px;
+  height: 1px;
   background-color: var(--white);
   margin-bottom: 2rem;
   animation: expandWidth 1s ease forwards;
@@ -169,7 +178,6 @@ h2 {
 
   p {
     font-family: var(--font-body);
-    max-width: 640px;
     opacity: 0.85;
     font-size: 1.4rem;
     line-height: 1.4;
@@ -216,9 +224,13 @@ h2 {
   }
 }
 .logo-img {
-  height: 32px;
+  height: 27px;
   filter: grayscale(100%) brightness(1.7) contrast(0.3);
-  opacity: 0.8;
+  opacity: 0.6;
+  &-big {
+    height: 35px;
+    opacity: 0.9;
+  }
 }
 
 @keyframes scrollBlink {
@@ -241,12 +253,6 @@ h2 {
   color: var(--white);
 }
 
-.section-title {
-  font-size: 3rem;
-  font-weight: 300;
-  letter-spacing: -1px;
-}
-
 .project-card {
   display: block;
   height: 100%;
@@ -259,81 +265,77 @@ h2 {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  }
 }
 
 .project-image {
-  height: 220px;
+  height: 180px;
+  object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(135deg, #111, #1a1a1a);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.7;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+  }
 }
 
 .project-content {
   padding: 1.5rem;
+  .meta {
+    color: var(--brat);
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
 }
 
-.project-content h3 {
-  font-size: 1.6rem;
-  margin-bottom: 0.3rem;
-  font-family: var(--font-title);
+//Approch Section
+.approach {
+  background: #0b0b0b;
+  h3 {
+    color: var(--brat);
+  }
 }
 
-.project-content .meta {
+.step {
   color: var(--brat);
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  opacity: 0.6;
 }
-
-.project-content p {
-  font-size: 1.1rem;
-  color: var(--light-grey);
-  line-height: 1.4;
+.manifesto {
+  text-align: center;
+  padding: 8rem 0;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    opacity: 0.8;
+  }
 }
 
 // About Us Section
-.about-us {
-  padding: 8rem 2rem;
-  max-width: 900px;
-  color: var(--white) fff;
-  text-align: center;
-  transform: translateY(30px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
-  width: 90vw;
-  margin: 0 auto;
 
-  p {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    max-width: 853px;
-    margin: 0 auto;
-    color: var(--light-grey);
+.about-image {
+  width: 63%;
+  border-radius: 12px;
+  filter: grayscale(100%);
+}
+
+@media (max-width: 600px) {
+  h2 {
+    font-size: 2.2rem;
   }
 
-  @media (max-width: 600px) {
-    h2 {
-      font-size: 2.2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
+  p {
+    font-size: 1.1rem;
   }
 }
 
@@ -435,16 +437,9 @@ h2 {
   padding: 1rem 0;
   background: #0b0b0b;
   color: var(--white);
-}
-
-.case-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.1rem;
-  letter-spacing: -1px;
-}
-
-.case-section p,
-.case-section li {
-  opacity: 0.9;
-  font-size: 1.1rem;
+  p,
+  li {
+    opacity: 0.9;
+    font-size: 1.1rem;
+  }
 }
