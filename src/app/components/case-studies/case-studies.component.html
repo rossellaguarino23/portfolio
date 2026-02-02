@@ -1,38 +1,55 @@
-<section class="project-grid">
-  <div class="project-grid-1">
-    <a href="#" class="grid-item grid-item--large">
-      <img src="linkedin-banner.png" alt="Project 1" />
-    </a>
-    <a href="#" class="grid-item grid-item--large">
-      <img src="linkedin-banner.png" alt="Project 2" />
-    </a>
-  </div>
-  <div class="project-grid-2">
-    <a href="#" class="grid-item grid-item--small">
-      <img src="linkedin-banner.png" alt="Project 3" />
-    </a>
-    <a href="#" class="grid-item grid-item--small">
-      <img src="linkedin-banner.png" alt="Project 4" />
-    </a>
-    <a href="#" class="grid-item grid-item--highlight">
-      <div></div>
-    </a>
+<section class="selected-work container-fluid" id="projects">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="section-title">Selected work</h2>
+      </div>
+    </div>
+
+    <!-- Boardmatch -->
+    <div class="d-flex column-gap-2">
+      <div class="col-md-4">
+        <a href="/case-studies/boardmatch" class="project-card">
+          <div class="project-image">
+            <img src="/boardmatch.png" alt="Boardmatch platform screenshot" />
+          </div>
+          <div class="project-content">
+            <h3>Boardmatch</h3>
+            <p class="meta">Salesforce · Experience Cloud</p>
+            <p>B2B education platform for professional courses, from discovery to high-fidelity design.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Avolta -->
+      <div class="col-md-4">
+        <a href="/case-studies/avolta" class="project-card no-image">
+          <div class="project-image">
+            <div class="project-image">
+              <img src="/avolta.png" alt="Boardmatch platform screenshot" />
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Avolta</h3>
+            <p class="meta">SharePoint · Enterprise</p>
+            <p>Design of internal tools for corporate teams, focused on usability, scalability and adoption.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Bladderboss -->
+      <div class="col-md-4">
+        <a href="/case-studies/avolta" class="project-card">
+          <div class="project-image">
+            <img src="/bladderboss.png" alt="Bladderboss wireframes" />
+          </div>
+          <div class="project-content">
+            <h3>Bladderboss</h3>
+            <p class="meta">Mobile app · Healthcare</p>
+            <p>UX design for a patient-focused mobile app, including research, user flows and wireframes.</p>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
-
-<!--<div id="case-studies" name="Case Studies">
-  @for(case of caseStudies;track $index){
-  <div class="case-study" [style.backgroundColor]="case.color">
-    <div class="case-info">
-      <h2>{{ case.title }}</h2>
-      @for(text of case.texts;track $index){
-      <p>{{ text }}</p>
-      }
-      <app-magic-link-button [href]="'case-studies' + case.folder">View Case Study</app-magic-link-button>
-    </div>
-    <div class="case-preview">
-      <img [src]="case.folder + '/preview.png'" style="width: 100px; height: 100px" />
-    </div>
-  </div>
-  }
-</div>-->

@@ -23,6 +23,7 @@
   --brat: #8ace00;
   --black: #0b0b0b;
   --white: #fff;
+  --grey: #aaa;
   --font-title: "Space Grotesk", sans-serif;
   --font-body: "Figtree", sans-serif;
 }
@@ -46,7 +47,6 @@ h2 {
   margin-bottom: 1rem;
   font-weight: 200;
   font-family: var(--font-title);
-  letter-spacing: 5px;
 }
 .bold {
   font-weight: 700;
@@ -208,8 +208,8 @@ h2 {
     display: block;
     width: 24px;
     height: 24px;
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-bottom: 2px solid var(--white);
+    border-right: 2px solid var(--white);
     transform: rotate(45deg);
     animation: scrollBlink 1.5s infinite;
   }
@@ -235,12 +235,83 @@ h2 {
   }
 }
 //Case Studies
+.projects {
+  background: var(--black);
+  color: var(--white);
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.project-card {
+  display: block;
+  height: 100%;
+  background: #0b0b0b;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.project-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.project-image.placeholder {
+  background: linear-gradient(135deg, #111, #1a1a1a);
+  color: var(--brat);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.project-content .meta {
+  color: var(--brat);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
 
 // About Us Section
 .about-us {
   padding: 8rem 2rem;
   max-width: 900px;
-  color: #ffffff;
+  color: var(--white) fff;
   text-align: center;
   transform: translateY(30px);
   transition:
@@ -285,65 +356,6 @@ h2 {
   }
 }
 
-// Services Section
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  padding: 40px 20px;
-  background-color: var(--black);
-
-  .service-card {
-    background-color: var(--black);
-    padding: 20px;
-    border-radius: 3px;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    text-align: left;
-    max-width: 333px;
-    width: 100%;
-    padding: 1.5rem;
-    border: 2px solid var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 15px;
-
-    h3 {
-      font-size: 1.8rem;
-      line-height: 1.1;
-      margin-bottom: 11px;
-      color: var(--white);
-      font-family: "Anonymous Pro", monospace;
-    }
-
-    p {
-      font-size: 1rem;
-      color: var(--white);
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-
-    &:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      background-color: var(--white);
-      color: var(--black);
-      transform: scale(1.05);
-
-      h3 {
-        color: var(--black);
-      }
-
-      p {
-        color: var(--black);
-      }
-    }
-  }
-}
-
 .cta-section {
   background-color: var(--black);
   color: var(--white);
@@ -364,36 +376,6 @@ h2 {
     margin-bottom: 2rem;
     font-family: "Space Grotesk";
     letter-spacing: 1px;
-  }
-
-  // Wave effect layer
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    height: 200%;
-    background: radial-gradient(ellipse at center, rgba(var(--white), 0.4) 0%, rgba(var(--white), 0.6) 40%, rgba(var(--white), 1) 100%);
-    transform: scaleY(0.3);
-    opacity: 0.6;
-    transition:
-      bottom 0.7s ease,
-      transform 0.7s ease;
-    z-index: 0;
-  }
-
-  &:hover::before {
-    bottom: 0;
-    transform: scaleY(1);
-  }
-
-  &:hover {
-    color: var(--black);
-    background-color: var(--white);
-    transition:
-      background-color 0.7s ease,
-      color 0.7s ease;
   }
 
   span {
@@ -428,4 +410,43 @@ h2 {
       }
     }
   }
+}
+
+//Case studies component
+.case-hero {
+  background: var(--black);
+  color: var(--white);
+}
+
+.case-meta {
+  color: var(--brat);
+  margin-bottom: 1rem;
+}
+
+.case-intro {
+  font-size: 1.2rem;
+  max-width: 700px;
+}
+
+.confidential {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.case-section {
+  padding: 5rem 0;
+  background: #0b0b0b;
+  color: var(--white);
+}
+
+.case-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.case-section p,
+.case-section li {
+  max-width: 700px;
+  opacity: 0.85;
 }
