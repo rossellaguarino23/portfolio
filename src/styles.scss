@@ -21,7 +21,7 @@
 }
 :root {
   --brat: #8ace00;
-  --black: #111;
+  --black: #0b0b0b;
   --white: #fff;
   --font-title: "Space Grotesk", sans-serif;
   --font-body: "Figtree", sans-serif;
@@ -51,21 +51,46 @@ h2 {
 .bold {
   font-weight: 700;
 }
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  &:hover {
+    background-color: var(--brat);
+    color: var(--black);
+    border: 1px solid var(--brat);
+  }
+  &-primary {
+    background: var(--white);
+    color: var(--black);
+    border: 1px solid var(--white);
+  }
+  &-secondary {
+    border: 1px solid var(--white);
+    color: var(--white);
+  }
+}
+
 // Navbar
 .navbar {
-  width: 90vw;
+  width: 85vw;
+  height: 13vh;
   margin: 0 auto;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   z-index: 10;
 
   .logo {
     font-size: 1.5rem;
-    font-weight: bold;
     color: var(--white);
-    font-family: "Anonymous Pro", monospace;
+    font-family: var(--font-title);
+    letter-spacing: -1px;
+    font-weight: 500;
   }
 
   .nav-links {
@@ -105,11 +130,14 @@ h2 {
 }
 
 // Hero container
+.hero-content {
+  padding-left: 8vw;
+}
 .hero {
-  min-height: 75vh;
+  min-height: 65vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   overflow: hidden;
 
   .line {
@@ -129,21 +157,27 @@ h2 {
 
   h1 {
     font-family: var(--font-title);
-    font-size: 7rem;
+    font-size: 5rem;
     font-weight: 300;
+    letter-spacing: -0.05em;
+
+    span {
+      color: var(--brat);
+    }
   }
 
   p {
     font-family: var(--font-body);
+    max-width: 640px;
+    opacity: 0.85;
     font-size: 1.5rem;
-    max-width: 600px;
-    margin: 2rem 5rem 2rem 1rem;
     line-height: 1.4;
   }
   .title-bold {
     font-size: 600;
     align-self: center;
   }
+
   .fade-in {
     opacity: 0;
     animation: fadeUp 1s ease forwards;
@@ -159,7 +193,7 @@ h2 {
     animation-delay: 1s;
   }
   .delay-4 {
-    animation-delay: 1.4s;
+    animation-delay: 1.2s;
   }
 }
 
@@ -179,6 +213,11 @@ h2 {
     transform: rotate(45deg);
     animation: scrollBlink 1.5s infinite;
   }
+}
+.logo-img {
+  height: 32px;
+  filter: grayscale(100%) brightness(1.7) contrast(0.3);
+  opacity: 0.8;
 }
 
 @keyframes scrollBlink {
@@ -204,7 +243,9 @@ h2 {
   color: #ffffff;
   text-align: center;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
   width: 90vw;
   margin: 0 auto;
 
@@ -258,7 +299,9 @@ h2 {
     background-color: var(--black);
     padding: 20px;
     border-radius: 3px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
     text-align: left;
     max-width: 333px;
     width: 100%;
@@ -323,50 +366,39 @@ h2 {
     letter-spacing: 1px;
   }
 
-  .cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border: 1px solid var(--white);
-    border-radius: 999px;
-    color: var(--white);
-    font-weight: bold;
-    text-decoration: none;
-    background-color: transparent;
-    overflow: hidden;
+  // Wave effect layer
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(var(--white), 0.4) 0%, rgba(var(--white), 0.6) 40%, rgba(var(--white), 1) 100%);
+    transform: scaleY(0.3);
+    opacity: 0.6;
+    transition:
+      bottom 0.7s ease,
+      transform 0.7s ease;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    bottom: 0;
+    transform: scaleY(1);
+  }
+
+  &:hover {
+    color: var(--black);
+    background-color: var(--white);
+    transition:
+      background-color 0.7s ease,
+      color 0.7s ease;
+  }
+
+  span {
     position: relative;
-    cursor: pointer;
-    transition: color 0.3s ease;
-
-    // Wave effect layer
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      height: 200%;
-      background: radial-gradient(ellipse at center, rgba(var(--white), 0.4) 0%, rgba(var(--white), 0.6) 40%, rgba(var(--white), 1) 100%);
-      transform: scaleY(0.3);
-      opacity: 0.6;
-      transition: bottom 0.7s ease, transform 0.7s ease;
-      z-index: 0;
-    }
-
-    &:hover::before {
-      bottom: 0;
-      transform: scaleY(1);
-    }
-
-    &:hover {
-      color: var(--black);
-      background-color: var(--white);
-      transition: background-color 0.7s ease, color 0.7s ease;
-    }
-
-    span {
-      position: relative;
-      z-index: 1;
-    }
+    z-index: 1;
   }
 }
 
