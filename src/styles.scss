@@ -24,6 +24,7 @@
   --black: #0b0b0b;
   --white: #fff;
   --grey: #aaa;
+  --light-grey: #ccc;
   --font-title: "Space Grotesk", sans-serif;
   --font-body: "Figtree", sans-serif;
 }
@@ -78,10 +79,19 @@ h2 {
   }
 }
 
+.line {
+  height: 2px;
+  background-color: var(--white);
+  margin-bottom: 2rem;
+  animation: expandWidth 1s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
 // Navbar
 .navbar {
   width: 85vw;
-  height: 13vh;
+  height: 77px;
   margin: 0 auto;
   z-index: 10;
 
@@ -134,20 +144,11 @@ h2 {
   padding-left: 8vw;
 }
 .hero {
-  min-height: 65vh;
+  min-height: calc(100vh - 77px - 91px - 4em);
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   overflow: hidden;
-
-  .line {
-    height: 2px;
-    background-color: var(--white);
-    margin-bottom: 2rem;
-    animation: expandWidth 1s ease forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
-  }
 
   h1,
   h2,
@@ -157,7 +158,7 @@ h2 {
 
   h1 {
     font-family: var(--font-title);
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 300;
     letter-spacing: -0.05em;
 
@@ -170,7 +171,7 @@ h2 {
     font-family: var(--font-body);
     max-width: 640px;
     opacity: 0.85;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.4;
   }
   .title-bold {
@@ -243,6 +244,7 @@ h2 {
 .section-title {
   font-size: 3rem;
   font-weight: 300;
+  letter-spacing: -1px;
 }
 
 .project-card {
@@ -252,7 +254,8 @@ h2 {
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  color: white;
+  border: 1px solid #282828;
+  color: var(--white);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -279,32 +282,27 @@ h2 {
   opacity: 0.7;
 }
 
-.project-image.placeholder {
-  background: linear-gradient(135deg, #111, #1a1a1a);
-  color: var(--brat);
-  font-size: 1rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
 .project-content {
   padding: 1.5rem;
 }
 
 .project-content h3 {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-bottom: 0.3rem;
+  font-family: var(--font-title);
 }
 
 .project-content .meta {
   color: var(--brat);
   font-size: 0.9rem;
   margin-bottom: 0.8rem;
+  font-weight: 600;
 }
 
 .project-content p {
-  font-size: 0.95rem;
-  opacity: 0.8;
+  font-size: 1.1rem;
+  color: var(--light-grey);
+  line-height: 1.4;
 }
 
 // About Us Section
@@ -325,7 +323,7 @@ h2 {
     line-height: 1.8;
     max-width: 853px;
     margin: 0 auto;
-    color: #ccc;
+    color: var(--light-grey);
   }
 
   @media (max-width: 600px) {
@@ -425,28 +423,28 @@ h2 {
 
 .case-intro {
   font-size: 1.2rem;
-  max-width: 700px;
 }
 
 .confidential {
-  margin-top: 1.5rem;
+  margin-top: 1.1rem;
   font-size: 0.9rem;
   opacity: 0.6;
 }
 
 .case-section {
-  padding: 5rem 0;
+  padding: 1rem 0;
   background: #0b0b0b;
   color: var(--white);
 }
 
 .case-section h2 {
   font-size: 2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
+  letter-spacing: -1px;
 }
 
 .case-section p,
 .case-section li {
-  max-width: 700px;
-  opacity: 0.85;
+  opacity: 0.9;
+  font-size: 1.1rem;
 }
