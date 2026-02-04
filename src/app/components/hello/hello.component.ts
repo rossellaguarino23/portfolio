@@ -16,7 +16,6 @@ export class HelloComponent {
   constructor() {
     this.gradientX.next(50 + '%');
     this.value.pipe(debounceTime(50)).subscribe((next) => {
-      console.log(next);
       this.gradientX.next(next + '%');
     });
   }
