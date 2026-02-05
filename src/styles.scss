@@ -60,6 +60,7 @@ li {
   font-size: 1.1rem;
   color: var(--light-grey);
   line-height: 1.4;
+  margin: 0;
 }
 ul {
   margin: 0;
@@ -429,11 +430,15 @@ ul {
 .case-hero {
   background: var(--black);
   color: var(--white);
+  img {
+    width: 100%;
+    border-radius: 16px;
+    margin-top: 48px;
+  }
 }
 
 .case-meta {
   color: var(--brat);
-  margin-bottom: 1rem;
 }
 
 .case-intro {
@@ -448,11 +453,78 @@ ul {
 
 .case-section {
   padding: 1rem 0;
-  background: #0b0b0b;
+  background: var(--black);
   color: var(--white);
+  h2 {
+    font-size: 1.9rem;
+  }
   p,
   li {
     opacity: 0.9;
     font-size: 1.1rem;
+  }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.case-image {
+  margin-top: 48px;
+  img {
+    width: 100%;
+    border-radius: 12px;
+  }
+}
+
+.case-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+  margin: 120px 0;
+}
+
+.case-split img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+.case-split.reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.case-split.reverse .image {
+  order: -1;
+}
+.wireframe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.wireframe-item {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 1rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 0.8rem;
+  }
+  p {
+    font-size: 0.9rem;
+    color: #bbb;
   }
 }
