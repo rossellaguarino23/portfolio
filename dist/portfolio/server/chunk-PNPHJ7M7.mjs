@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{Ba as n,Ca as s,Fa as i,sa as o}from"./chunk-MWB7ROLY.mjs";import"./chunk-S6KH3LOX.mjs";var p=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=o({type:e,selectors:[["app-bladder-boss"]],decls:2,vars:0,template:function(t,a){t&1&&(n(0,"p"),i(1,"bladder-boss works!"),s())},encapsulation:2})}}return e})();export{p as BladderBossComponent};

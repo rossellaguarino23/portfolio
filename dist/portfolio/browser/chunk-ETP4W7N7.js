@@ -1,1 +1,0 @@
-import{Ca as i,ra as o,ya as n,za as s}from"./chunk-GPL4XFHJ.js";var p=(()=>{class e{static{this.\u0275fac=function(t){return new(t||e)}}static{this.\u0275cmp=o({type:e,selectors:[["app-bladder-boss"]],decls:2,vars:0,template:function(t,a){t&1&&(n(0,"p"),i(1,"bladder-boss works!"),s())},encapsulation:2})}}return e})();export{p as BladderBossComponent};
