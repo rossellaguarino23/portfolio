@@ -8,32 +8,32 @@ export default {
   entryPointToBrowserMapping: {
   "src/app/pages/home/home.component.ts": [
     {
-      "path": "chunk-ZMO337KH.js",
+      "path": "chunk-4GIEP2KX.js",
       "dynamicImport": false
     }
   ],
   "src/app/pages/case-studies/bladder-boss/bladder-boss.component.ts": [
     {
-      "path": "chunk-KIO7D5AQ.js",
+      "path": "chunk-COH3ZROA.js",
       "dynamicImport": false
     }
   ],
   "src/app/pages/case-studies/boardmatch/boardmatch.component.ts": [
     {
-      "path": "chunk-D7MVOQKX.js",
+      "path": "chunk-53JNDROT.js",
       "dynamicImport": false
     }
   ],
   "src/app/pages/case-studies/avolta/avolta.component.ts": [
     {
-      "path": "chunk-6AZGU2WW.js",
+      "path": "chunk-4QRB253U.js",
       "dynamicImport": false
     }
   ]
 },
   assets: {
-    'index.csr.html': {size: 14186, hash: 'b70baefe2faf2be3e79c5ae79279e3e460c3803993d8fec503285dbf1e5c8674', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 9444, hash: '9d6deb45ff2c8ebf6b126f1527a350396c133d3018d008941b12d276e2e09172', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'styles-3NOLUEX6.css': {size: 312566, hash: 'PkR55OJVgKM', text: () => import('./assets-chunks/styles-3NOLUEX6_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 14189, hash: '277b11dfb99684179ea6a588678b4ab8186f632c46270843bb6fe85380811342', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 9444, hash: '916cb7457fd99e5abbb94f219cd8d472060b507c3d7bc662e2a84e53a8c24523', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'styles-EWF77DFC.css': {size: 312570, hash: 'ipcM5KgqqgY', text: () => import('./assets-chunks/styles-EWF77DFC_css.mjs').then(m => m.default)}
   },
 };
