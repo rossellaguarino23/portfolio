@@ -24,7 +24,7 @@
   --black: #0b0b0b;
   --white: #fff;
   --grey: #aaa;
-  --light-grey: #ccc;
+  --light-grey: #ececec;
   --font-title: "Space Grotesk", sans-serif;
   --font-body: "Figtree", sans-serif;
 }
@@ -170,7 +170,7 @@ ul {
 
   h1 {
     font-family: var(--font-title);
-    font-size: 4rem;
+    font-size: 3.7rem;
     font-weight: 300;
     letter-spacing: -0.05em;
 
@@ -289,6 +289,9 @@ ul {
     opacity: 0.7;
   }
 }
+.blurred {
+  filter: blur(1px);
+}
 
 .project-content {
   padding: 1.5rem;
@@ -310,9 +313,9 @@ ul {
 
 .step {
   color: var(--brat);
-  font-size: 1rem;
-  margin-right: 0.5rem;
-  opacity: 0.6;
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+  opacity: 0.7;
 }
 .manifesto {
   text-align: center;
@@ -320,14 +323,14 @@ ul {
   h2 {
     font-size: 2.5rem;
     font-weight: 300;
-    opacity: 0.8;
+    color: var(--light-grey);
   }
 }
 
 // About Us Section
 
 .about-image {
-  width: 53%;
+  width: 45%;
   border-radius: 12px;
   filter: grayscale(100%);
 }
@@ -531,7 +534,6 @@ ul {
 }
 .case-nav {
   margin: 80px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .case-nav-inner {
