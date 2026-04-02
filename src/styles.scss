@@ -29,9 +29,9 @@
   --black: #0b0b0b;
   --white: #fff;
   --grey: #aaa;
-  --light-grey: #ececec;
+  --light-grey: #dddddd;
   --font-title: "Manrope", sans-serif;
-  --font-body: "Figtree", sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
 // Global Styles
@@ -47,7 +47,9 @@ body {
   background-color: var(--black);
   color: var(--white);
 }
-
+section {
+  margin-bottom: 5rem;
+}
 h2 {
   font-size: 2.3rem;
   margin-bottom: 1rem;
@@ -72,15 +74,17 @@ ul {
 }
 .button {
   display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 999px;
-  font-weight: bold;
+  padding: 0.9rem 1.5rem;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
   background-color: transparent;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: color 0.3s ease;
+  font-family: var(--font-title);
   &:hover {
     background-color: var(--brat);
     color: var(--black);
@@ -100,6 +104,7 @@ ul {
   list-style: none;
   display: flex;
   gap: 2rem;
+  font-family: var(--font-title);
 
   li {
     a {
@@ -130,7 +135,7 @@ ul {
 // Navbar
 .navbar {
   width: 85vw;
-  height: 77px;
+  height: 87px;
   margin: 0 auto;
   z-index: 10;
 
@@ -157,15 +162,33 @@ ul {
 }
 
 // Hero container
-.hero-content {
-  padding-left: 8vw;
-}
 .hero {
-  min-height: calc(100vh - 77px - 91px - 4em);
+  min-height: calc(100vh - 77px - 91px - 6em);
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 6%;
+    right: 35%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(131, 255, 0, 0.15) 0%, rgba(131, 255, 0, 0) 70%);
+    filter: blur(33px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    padding-left: 8vw;
+  }
 
   h1,
   h2,
@@ -175,21 +198,22 @@ ul {
 
   h1 {
     font-family: var(--font-title);
-    font-size: 3.7rem;
-    font-weight: 300;
-    letter-spacing: 0.01em;
+    font-size: 4rem;
+    font-weight: 100;
+    letter-spacing: -0.01em;
 
     span {
       color: var(--brat);
+      font-weight: 300;
     }
   }
 
   p {
     font-family: var(--font-body);
     opacity: 0.85;
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     line-height: 1.4;
-    width: 63rem;
+    width: 47rem;
   }
   .title-bold {
     font-size: 600;
@@ -263,20 +287,20 @@ ul {
 }
 
 .project-card {
+  background: #161616;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: block;
   height: 100%;
-  background: #0b0b0b;
-  border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  border: 1px solid #282828;
   color: var(--white);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
   &:hover {
-    transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    transform: translateY(-5px);
   }
 }
 
@@ -306,40 +330,176 @@ ul {
     font-size: 0.9rem;
     margin-bottom: 0.8rem;
     font-weight: 600;
+    font-family: var(--font-title);
   }
 }
 
 //Approch Section
 .approach {
-  background: #0b0b0b;
-  h3 {
-    color: var(--brat);
-  }
-}
+  background: var(--black);
+  color: var(--white);
 
-.step {
-  color: var(--brat);
-  font-size: 1.1rem;
-  margin-right: 0.3rem;
-  opacity: 0.7;
-}
-.manifesto {
-  text-align: center;
-  padding: 8rem 0;
-  h2 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--light-grey);
+  .bento-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .bento-item {
+    background: #161616;
+    padding: 2rem 2.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      border-color: var(--brat);
+      transform: translateY(-5px);
+      background: #1c1c1c;
+    }
+
+    .step {
+      font-family: var(--font-title);
+      font-weight: 100;
+      font-size: 1.7rem;
+      color: #83ff00;
+      border: 1px solid rgba(131, 255, 0, 0.2);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      display: inline-block;
+    }
+
+    p {
+      line-height: 1.5;
+      margin: 0;
+    }
   }
 }
 
 // About Us Section
 
-.about-image {
-  width: 45%;
-  border-radius: 12px;
-  filter: grayscale(100%);
+.about {
+  background: #0b0b0b;
+  color: #fff;
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .about-card {
+    background: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 3rem;
+    overflow: hidden;
+  }
+
+  .main-info {
+    grid-row: span 2;
+    h2 span {
+      color: var(--brat);
+    }
+    p {
+      color: var(--light-grey);
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-top: 2rem;
+    }
+  }
+
+  .profile-photo {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.5s ease;
+      &:hover {
+        filter: grayscale(0%);
+      }
+    }
+  }
+
+  .tech-stack {
+    padding: 2rem;
+    h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: var(--font-title);
+      span {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: var(--brat);
+      }
+    }
+  }
+
+  // Badge de estado (Senior detail)
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(131, 255, 0, 0.1);
+    color: var(--brat);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-title);
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--brat);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--brat);
+      animation: pulse 2s infinite;
+    }
+  }
 }
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .highlight {
   color: var(--brat);
   font-weight: 500;
