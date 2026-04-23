@@ -1,37 +1,29 @@
 @use "bootstrap/dist/css/bootstrap.min.css";
 @font-face {
-  font-family: "Manrope";
-  src: url(/fonts/Manrope-VariableFont_wght.ttf);
+  font-family: "Sora";
+  src: url(/fonts/Sora-VariableFont_wght.ttf);
   font-weight: 100 700;
 }
 @font-face {
-  font-family: "Space Grotesk";
-  src: url(/fonts/SpaceGrotesk-VariableFont_wght.ttf);
+  font-family: "Jet Brains Mono";
+  src: url(/fonts/JetBrainsMono-VariableFont_wght.ttf);
   font-weight: 100 700;
 }
 @font-face {
-  font-family: "Inter";
-  src: url(/fonts/Inter-VariableFont_wght.ttf);
+  font-family: "IBM Plex Sans";
+  src: url(/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf);
   font-weight: 100 700;
 }
-@font-face {
-  font-family: "Inter-Italic";
-  src: url(/fonts/Inter-Italic-VariableFont_wght.ttf);
-  font-weight: 100 700;
-}
-@font-face {
-  font-family: "Instrument";
-  src: url(/fonts/InstrumentSerif-Regular.ttf);
-  font-weight: 100 700;
-}
+
 :root {
   --brat: #8ace00;
   --black: #0b0b0b;
   --white: #fff;
   --grey: #aaa;
   --light-grey: #dddddd;
-  --font-title: "Manrope", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-title: "Sora", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-label: "Jet Brains Mono", monospace;
 }
 
 // Global Styles
@@ -58,9 +50,10 @@ h2 {
   letter-spacing: -1px;
 }
 h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 0.3rem;
   font-family: var(--font-title);
+  font-weight: 400;
 }
 p,
 li {
@@ -74,8 +67,8 @@ ul {
 }
 .button {
   display: inline-block;
-  padding: 0.9rem 1.5rem;
-  border-radius: 3px;
+  padding: 0.9rem 1.8rem;
+  border-radius: 4px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -83,41 +76,95 @@ ul {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  transition: color 0.3s ease;
-  font-family: var(--font-title);
-  &:hover {
+  z-index: 1;
+  transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-family: var(--font-label);
+  border: 1px solid transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: var(--brat);
-    color: var(--black);
-    border: 1px solid var(--brat);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: -1;
   }
+
+  &:hover {
+    color: var(--black);
+    border-color: var(--brat);
+
+    &::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
   &-primary {
     background: var(--white);
     color: var(--black);
     border: 1px solid var(--white);
+
+    &:hover {
+      color: var(--black);
+      border-color: var(--brat);
+    }
   }
+
   &-secondary {
     border: 1px solid var(--white);
     color: var(--white);
+
+    &:hover {
+      border-color: var(--brat);
+    }
+  }
+
+  &:active {
+    transform: scale(0.96);
   }
 }
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
-  font-family: var(--font-title);
+  font-family: var(--font-label);
 
   li {
     a {
       text-decoration: none;
       color: var(--white);
-      font-weight: 500;
-      transition: color 0.3s ease;
       font-weight: 400;
-      transition: color 0.3s ease;
       letter-spacing: 0.5px;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: var(--brat);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+      }
 
       &:hover {
         color: var(--brat);
+
+        &::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
       }
     }
   }
@@ -163,7 +210,7 @@ ul {
 
 // Hero container
 .hero {
-  min-height: calc(100vh - 77px - 91px - 6em);
+  min-height: calc(100vh - 77px - 91px - 7em);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -199,21 +246,20 @@ ul {
   h1 {
     font-family: var(--font-title);
     font-size: 4rem;
-    font-weight: 100;
-    letter-spacing: -0.01em;
+    font-weight: 200;
+    letter-spacing: -0.07em;
 
     span {
       color: var(--brat);
-      font-weight: 300;
     }
   }
 
   p {
     font-family: var(--font-body);
     opacity: 0.85;
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     line-height: 1.4;
-    width: 47rem;
+    width: 63rem;
   }
   .title-bold {
     font-size: 600;
@@ -239,6 +285,17 @@ ul {
   }
 }
 
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .hero-btns {
+    flex-direction: column;
+  }
+}
 .scroll-down {
   position: absolute;
   bottom: 2rem;
@@ -299,8 +356,10 @@ ul {
     transform 0.3s ease,
     box-shadow 0.3s ease;
   &:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-    transform: translateY(-5px);
+    border-color: var(--brat);
+    transform: translateY(-8px);
+    background: #1c1c1c;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -328,9 +387,10 @@ ul {
   .meta {
     color: var(--brat);
     font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-    font-family: var(--font-title);
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.3px;
+    font-weight: 300;
+    font-family: var(--font-label);
   }
 }
 
@@ -341,45 +401,47 @@ ul {
 
   .bento-grid {
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
 
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr;
+    .bento-item {
+      background: #161616;
+      padding: 2.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      .step {
+        font-family: var(--font-label);
+        font-size: 1.5rem;
+        color: var(--brat);
+        background: rgba(131, 255, 0, 0.05);
+        border: 1px solid rgba(131, 255, 0, 0.2);
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+      }
+      p {
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+        letter-spacing: -0.01em;
+      }
+
+      &:hover {
+        border-color: var(--brat);
+        transform: translateY(-8px);
+        background: #1c1c1c;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
     }
   }
 
-  .bento-item {
-    background: #161616;
-    padding: 2rem 2.5rem;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-
-    &:hover {
-      border-color: var(--brat);
-      transform: translateY(-5px);
-      background: #1c1c1c;
-    }
-
-    .step {
-      font-family: var(--font-title);
-      font-weight: 100;
-      font-size: 1.7rem;
-      color: #83ff00;
-      border: 1px solid rgba(131, 255, 0, 0.2);
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 2rem;
-      display: inline-block;
-    }
-
-    p {
-      line-height: 1.5;
-      margin: 0;
+  @media (max-width: 768px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
     }
   }
 }
@@ -411,12 +473,17 @@ ul {
 
   .main-info {
     grid-row: span 2;
+    h2 {
+      font-size: 3rem;
+      font-weight: 200;
+      letter-spacing: -0.07em;
+    }
     h2 span {
       color: var(--brat);
     }
     p {
       color: var(--light-grey);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 1.5;
       margin-top: 2rem;
     }
@@ -450,14 +517,15 @@ ul {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      font-family: var(--font-title);
+      font-family: var(--font-label);
       span {
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 6px 14px;
         border-radius: 100px;
-        font-size: 0.9rem;
-        font-weight: 400;
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
         color: var(--brat);
       }
     }
