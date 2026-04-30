@@ -28,6 +28,7 @@
     padding: 1rem 0;
     flex-wrap: wrap;
     gap: 2rem;
+    height: 75px;
   }
 
   &-name {
@@ -56,13 +57,14 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-between;
-    color: var(--white);
     opacity: 0.5;
     text-transform: uppercase;
     letter-spacing: 1px;
+    height: 55px;
 
     p {
       font-size: 0.75rem;
+      color: var(--light-grey);
     }
   }
 }
