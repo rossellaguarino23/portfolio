@@ -1,0 +1,17 @@
+name: CI Webhook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call CI webhook
+        run: |
+          curl --fail --silent --show-error --request POST \
+            --url "http://zoe.haakjvork.eu:8888/haak-system-owner/github/pull/ross-portfolio" \
+            --header "Content-Type: application/json" \
+            --data '{"ref":"${{ github.ref }}","sha":"${{ github.sha }}","repository":"${{ github.repository }}"}'
