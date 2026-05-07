@@ -9,12 +9,12 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     env:
-      WEBHOOK_SECRET: ${{ secrets.GITHUB_WEBHOOK_SECRET }}
+      WEBHOOK_SECRET: ${{ secrets.HAAK_WEBHOOK_SECRET }}
     steps:
       - name: Call CI webhook
         run: |
           if [ -z "$WEBHOOK_SECRET" ]; then
-            echo "GITHUB_WEBHOOK_SECRET is not set" >&2
+            echo "HAAK_WEBHOOK_SECRET is not set" >&2
             exit 1
           fi
 
