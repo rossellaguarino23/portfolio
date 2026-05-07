@@ -8,10 +8,26 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
+    env:
+      WEBHOOK_SECRET: ${{ secrets.GITHUB_WEBHOOK_SECRET }}
     steps:
       - name: Call CI webhook
         run: |
+          if [ -z "$WEBHOOK_SECRET" ]; then
+            echo "GITHUB_WEBHOOK_SECRET is not set" >&2
+            exit 1
+          fi
+
+          payload=$(printf '{"ref":"%s","sha":"%s","repository":"%s"}' \
+            "${{ github.ref }}" \
+            "${{ github.sha }}" \
+            "${{ github.repository }}")
+
+          signature=$(printf '%s' "$payload" | openssl dgst -sha256 -hmac "$WEBHOOK_SECRET" -hex | sed 's/^.* //')
+
           curl --fail --silent --show-error --request POST \
             --url "http://zoe.haakjvork.eu:8888/haak-system-owner/github/pull/ross-portfolio" \
             --header "Content-Type: application/json" \
-            --data '{"ref":"${{ github.ref }}","sha":"${{ github.sha }}","repository":"${{ github.repository }}"}'
+            --header "X-GitHub-Event: push" \
+            --header "X-Hub-Signature-256: sha256=$signature" \
+            --data "$payload"
