@@ -20,6 +20,11 @@
   animation: scroll-left 45s linear infinite;
 }
 
+.scroll-container:hover .scroll-content,
+.scroll-container:focus-within .scroll-content {
+  animation-play-state: paused;
+}
+
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
