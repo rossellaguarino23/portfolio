@@ -11,6 +11,10 @@ export const routes: Routes = [
         path: 'avolta',
         loadComponent: () => import('./pages/case-studies/avolta/avolta.component').then((p) => p.AvoltaComponent),
       },
+            {
+        path: 'taxeezy',
+        loadComponent: () => import('./pages/case-studies/taxeezy/taxeezy.component').then((p) => p.TaxeezyComponent),
+      },
     ],
   },
   { path: '*', redirectTo: '' },
