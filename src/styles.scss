@@ -57,6 +57,9 @@ h3 {
   font-family: var(--font-title);
   font-weight: 400;
 }
+h4 {
+  font-family: var(--font-title);
+}
 p,
 li {
   font-size: 1.1rem;
@@ -449,6 +452,9 @@ ul {
     .bento-grid {
       grid-template-columns: 1fr;
     }
+    .bento-grid .bento-item {
+      padding: 2rem 1rem;
+    }
   }
 }
 
@@ -537,7 +543,6 @@ ul {
     }
   }
 
-  // Badge de estado (Senior detail)
   .status-badge {
     display: inline-flex;
     align-items: center;
@@ -581,7 +586,7 @@ ul {
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
   h2 {
     font-size: 1.9rem;
@@ -590,8 +595,19 @@ ul {
   p {
     font-size: 1.1rem;
   }
-  .about-image {
-    width: 100%;
+  .about {
+    .main-info h2 {
+      font-size: 2.5rem;
+    }
+    .about-card {
+      padding: 2rem 1rem;
+    }
+    .profile-photo {
+      padding: 0;
+    }
+    .about-image {
+      width: 100%;
+    }
   }
 }
 
@@ -667,7 +683,7 @@ ul {
       padding: 0;
 
       h1 {
-        font-size: 2.7rem;
+        font-size: 2.5rem;
       }
 
       p {
@@ -845,10 +861,6 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-
-    @media (max-width: 992px) {
-      grid-template-columns: 1fr;
-    }
   }
   .impact-card {
     h4 {
@@ -908,11 +920,16 @@ ul {
 @media (max-width: 992px) {
   .hero-grid,
   .case-grid,
-  .role-layout,
-  .process-grid,
-  .problem-grid,
-  .outcome-grid {
+  .problem-grid {
     grid-template-columns: 1fr;
+    gap: 0;
+    text-align: center;
+  }
+  .problem-grid,
+  .case-section .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
   }
 
   .case-hero h1 {
@@ -924,7 +941,13 @@ ul {
   }
 
   .case-section {
-    padding: 5rem 0;
+    padding: 2.5rem 0.3rem;
+  }
+  .section-content {
+    margin-top: 2rem;
+  }
+  .strategy-blueprint {
+    display: none;
   }
 }
 .case-nav {
@@ -991,9 +1014,5 @@ ul {
   }
   .case-nav-inner {
     grid-template-columns: 1fr;
-  }
-
-  .case-nav-item.next {
-    text-align: left;
   }
 }

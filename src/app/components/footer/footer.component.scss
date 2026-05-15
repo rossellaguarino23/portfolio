@@ -61,14 +61,13 @@
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-between;
-    opacity: 0.5;
     text-transform: uppercase;
     letter-spacing: 1px;
     height: 55px;
 
     p {
       font-size: 0.75rem;
-      color: var(--light-grey);
+      color: var(--grey);
     }
   }
 }
@@ -80,8 +79,23 @@
       row-gap: 7px;
       height: 126px;
     }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: 5px;
+      height: 80px;
+    }
   }
-  .cta-section h2 {
-    font-size: 2.7rem;
+  .cta-section {
+    h2 {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    .cta-kicker {
+      font-size: 1rem;
+    }
   }
 }
