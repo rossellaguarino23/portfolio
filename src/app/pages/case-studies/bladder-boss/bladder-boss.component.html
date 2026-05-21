@@ -129,6 +129,7 @@
       <span>03</span>
       <h2>Design Foundations</h2>
     </div>
+
     <div class="section-content">
       <p>
         I built a comprehensive wireframe library and a foundational design system to ensure consistency across the onboarding, tracking, and educational
@@ -136,25 +137,62 @@
       </p>
 
       <div class="asset-grid">
-        <!-- Reemplazar con tu componente de imagen real -->
-        <div
-          class="asset-placeholder"
-          style="
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed rgba(255, 255, 255, 0.1);
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          "
-        >
-          <p style="font-family: monospace; opacity: 0.5">[ WIREFRAME SYSTEM / DESIGN SYSTEM ASSET ]</p>
+        <!-- DESIGN SYSTEM -->
+        <div class="asset-section">
+          <div class="asset-section-header">
+            <span class="asset-label">01</span>
+            <h3>Design System</h3>
+          </div>
+
+          <div class="asset-carousel">
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-1.png')">
+              <img src="/case-studies/BladderBoss-1.png" alt="Color system" />
+              <span>Color Tokens</span>
+            </div>
+
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-2.png')">
+              <img src="/case-studies/BladderBoss-2.png" alt="Components" />
+              <span>Components</span>
+            </div>
+
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-3.png')">
+              <img src="/case-studies/BladderBoss-3.png" alt="Forms" />
+              <span>Form Patterns</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- UX ARCHITECTURE -->
+        <div class="asset-section">
+          <div class="asset-section-header">
+            <span class="asset-label">02</span>
+            <h3>UX Architecture</h3>
+          </div>
+
+          <div class="asset-carousel">
+            <div class="asset-card large" (click)="openModal('assets/wireflows/flow-1.jpg')">
+              <img src="assets/wireflows/flow-1.jpg" alt="Tax flow" />
+              <span>Self Assessment Flow</span>
+            </div>
+
+            <div class="asset-card large" (click)="openModal('assets/wireflows/flow-2.jpg')">
+              <img src="assets/wireflows/flow-2.jpg" alt="Dynamic logic" />
+              <span>Progressive Disclosure Logic</span>
+            </div>
+
+            <div class="asset-card large" (click)="openModal('assets/wireflows/flow-3.jpg')">
+              <img src="assets/wireflows/flow-3.jpg" alt="Expert review" />
+              <span>Expert Review Pipeline</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 
+  <!-- GALLERY MODAL -->
+  <app-gallery-modal [images]="galleryImages" [selectedImage]="selectedImage"> </app-gallery-modal>
+</section>
 <!-- 04 THE IMPACT -->
 <section class="case-section px-2">
   <div class="container case-grid">
