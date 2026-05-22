@@ -14,6 +14,9 @@ export class BladderBossComponent {
     '/case-studies/BladderBoss-1.png',
     '/case-studies/BladderBoss-2.png',
     '/case-studies/BladderBoss-3.png',
+    '/case-studies/BladderBoss-Home.png',
+    '/case-studies/BladderBoss-Diary.png',
+    '/case-studies/BladderBoss-Profile.png',
   ];
 
   selectedImage: string | null = null;

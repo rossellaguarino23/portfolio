@@ -8,8 +8,8 @@
 }
 @font-face {
   font-family: "Jet Brains Mono";
-  src: url("/fonts/JetBrainsMono.woff2") format("woff2");
-  font-weight: 100 900;
+  src: url("/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+  font-weight: 500;
   font-display: swap;
 }
 @font-face {
@@ -75,7 +75,6 @@ ul {
   padding: 0.9rem 1.8rem;
   border-radius: 4px;
   font-size: 1rem;
-  font-weight: 600;
   text-decoration: none;
   background-color: transparent;
   overflow: hidden;
@@ -535,7 +534,7 @@ ul {
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 6px 14px;
         border-radius: 100px;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 500;
         letter-spacing: 0.01em;
         color: var(--brat);
@@ -652,15 +651,11 @@ ul {
     position: relative;
     z-index: 1;
   }
-  .cta-kicker {
-    color: var(--brat);
-    font-weight: 600;
-  }
 }
 .dot {
   height: 8px;
   width: 8px;
-  background-color: #88ff00; /* Tu verde */
+  background-color: #88ff00;
   border-radius: 50%;
   display: inline-block;
   margin-right: 5px;
@@ -747,7 +742,7 @@ ul {
   p {
     font-family: var(--font-label);
     color: var(--brat);
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 }
 
@@ -820,6 +815,7 @@ ul {
     color: var(--light-grey);
     max-width: 900px;
     padding-bottom: 1rem;
+    font-size: 1.2rem;
   }
   p + p {
     margin-top: 1.5rem;
@@ -983,6 +979,7 @@ ul {
     border-color 0.35s ease,
     background 0.35s ease;
   flex-shrink: 0;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-4px);
@@ -1014,9 +1011,11 @@ ul {
     text-transform: uppercase;
     color: var(--light-grey);
     font-family: var(--font-label);
-    background: var(--carbon);
+    background: var(--black);
     padding: 0.5rem 1rem;
-    border-color: rgba(145, 255, 0, 0.25);
+    border-top: 1px solid rgba(145, 255, 0, 0.25);
+    border-right: 1px solid rgba(145, 255, 0, 0.25);
+    border-top-right-radius: 5px;
   }
 
   &::after {
@@ -1050,8 +1049,6 @@ ul {
     min-width: 320px;
     height: 220px;
   }
-}
-@media (max-width: 768px) {
   .hero-grid,
   .case-grid,
   .problem-grid {
@@ -1101,38 +1098,37 @@ ul {
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
   transition: all 0.3s ease;
-}
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
+  }
 
-.case-nav-item:hover {
-  background: rgba(255, 255, 255, 0.06);
-  transform: translateY(-4px);
-}
+  .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+  }
 
-.case-nav-item .label {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  opacity: 0.6;
-}
+  .title {
+    display: block;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 8px;
+    font-family: var(--font-title);
+  }
 
-.case-nav-item .title {
-  display: block;
-  font-size: 28px;
-  font-weight: 600;
-  margin-top: 8px;
-  font-family: var(--font-title);
-}
+  .meta {
+    display: block;
+    margin-top: 4px;
+    color: var(--brat);
+    font-size: 14px;
+    font-family: var(--font-label);
+  }
 
-.case-nav-item .meta {
-  display: block;
-  margin-top: 4px;
-  color: var(--brat);
-  font-size: 14px;
-  font-family: var(--font-label);
-}
-
-.case-nav-item.next {
-  text-align: right;
+  .next {
+    text-align: right;
+  }
 }
 
 @media (max-width: 768px) {
