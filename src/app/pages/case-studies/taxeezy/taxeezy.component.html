@@ -137,22 +137,55 @@
       </p>
 
       <div class="asset-grid">
-        <div
-          class="asset-placeholder"
-          style="
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed rgba(255, 255, 255, 0.1);
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          "
-        >
-          <p style="font-family: monospace; opacity: 0.5">[ FULL DESIGN SYSTEM & PLATFORM UI SHOWCASE ]</p>
+        <div class="asset-section">
+          <div class="asset-section-header">
+            <h3>Design System</h3>
+          </div>
+
+          <div class="asset-carousel">
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-1.png')">
+              <img src="/case-studies/BladderBoss-1.png" alt="Color token system architecture" />
+              <span>Color Tokens</span>
+            </div>
+
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-2.png')">
+              <img src="/case-studies/BladderBoss-2.png" alt="Typographic hierarchy scales" />
+              <span>Typography</span>
+            </div>
+
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-3.png')">
+              <img src="/case-studies/BladderBoss-3.png" alt="Proprietary semantic medical icons" />
+              <span>Custom Icons</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="asset-section pt-3">
+          <div class="asset-section-header">
+            <h3>UI Architecture</h3>
+          </div>
+
+          <div class="asset-carousel">
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-Home.png')">
+              <img src="/case-studies/BladderBoss-Home.png" alt="Bladder Boss Dashboard and Module interface layout" />
+              <span>Home & Modules</span>
+            </div>
+
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-Diary.png')">
+              <img src="/case-studies/BladderBoss-Diary.png" alt="Symptom logging and tracking interaction flows" />
+              <span>Diary Flow</span>
+            </div>
+
+            <div class="asset-card" (click)="openModal('/case-studies/BladderBoss-Profile.png')">
+              <img src="/case-studies/BladderBoss-Profile.png" alt="Patient profile and metrics configuration view" />
+              <span>Profile Hub</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <app-gallery-modal [images]="galleryImages" [selectedImage]="selectedImage"> </app-gallery-modal>
 </section>
 
 <!-- 04 THE IMPACT -->
