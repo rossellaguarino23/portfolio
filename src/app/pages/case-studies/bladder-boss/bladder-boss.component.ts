@@ -22,6 +22,7 @@ export class BladderBossComponent {
     '/case-studies/BladderBoss-Profile.png',
   ];
 
+
   openModal(images: string[], index: number): void {
     this.galleryModal.openModal(images, index);
   }

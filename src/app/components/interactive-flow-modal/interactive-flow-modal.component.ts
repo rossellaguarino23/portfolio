@@ -7,7 +7,7 @@ import { InteractiveFlow } from '../../types/gallery';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './interactive-flow-modal.component.html',
-  styleUrl: './interactive-flow-modal.component.scss'
+  styleUrl: './interactive-flow-modal.component.scss',
 })
 export class InteractiveFlowModalComponent {
   private _activeFlow: InteractiveFlow | null = null;
@@ -32,6 +32,14 @@ export class InteractiveFlowModalComponent {
     }
 
     this.currentScreenId = targetScreenId;
+  }
+
+  getImageUrl(): string {
+    const screen = this.activeFlow?.screens[this.currentScreenId];
+    if (!this.activeFlow || !screen) {
+      return '';
+    }
+    return `/flows/${this.activeFlow.key}-${screen.id}.png`;
   }
 
   resetFlow(): void {

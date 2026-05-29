@@ -11,12 +11,12 @@ export interface Hotspot {
 
 export interface FlowScreen {
   id: string; // ID único (ej: 'taxeezy-2.0')
-  imageUrl: string; // Ruta a la pantalla individual exportada
   hotspots: Hotspot[]; // Zonas interactivas de esta pantalla
 }
 
 export interface InteractiveFlow {
   title: string;
   startScreenId: string;
+  key: string;
   screens: { [id: string]: FlowScreen | null }; // Diccionario de pantallas para acceso rápido
 }

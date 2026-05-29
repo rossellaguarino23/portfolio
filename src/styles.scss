@@ -48,6 +48,73 @@ main {
   min-height: 80vh;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  visibility: hidden;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow: hidden;
+  background: var(--carbon);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.modal-img-container {
+  width: fit-content;
+  margin: auto;
+}
+
+.modal-img {
+  width: 100%;
+  max-width: 100%;
+  max-height: calc(90vh - 12rem);
+  display: block;
+  object-fit: contain;
+}
+
+.modal-button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font-size: 1.75rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.modal-button:hover {
+  background: rgba(145, 255, 0, 0.15);
+  color: var(--brat);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
 h2 {
   font-size: 2.3rem;
   margin-bottom: 1rem;
