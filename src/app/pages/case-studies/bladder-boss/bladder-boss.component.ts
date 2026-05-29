@@ -10,19 +10,20 @@ import { GalleryModalComponent } from '../../../components/gallery-modal/gallery
 export class BladderBossComponent {
   @ViewChild(GalleryModalComponent) galleryModal!: GalleryModalComponent;
 
-  galleryImages: string[] = [
+  designSystemImages: string[] = [
     '/case-studies/BladderBoss-1.png',
     '/case-studies/BladderBoss-2.png',
     '/case-studies/BladderBoss-3.png',
+  ];
+
+  uiArchitectureImages: string[] = [
     '/case-studies/BladderBoss-Home.png',
     '/case-studies/BladderBoss-Diary.png',
     '/case-studies/BladderBoss-Profile.png',
   ];
 
-  selectedImage: string | null = null;
-
-  openModal(image: string): void {
-    this.selectedImage = image;
-    this.galleryModal.openModal(image);
+  openModal(images: string[], index: number): void {
+    this.galleryModal.openModal(images, index);
   }
+
 }

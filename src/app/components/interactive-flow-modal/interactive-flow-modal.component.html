@@ -1,0 +1,29 @@
+@if (activeFlow) {
+  <div class="interactive-flow-modal" (click)="closeModal()">
+    <div class="modal-body" (click)="$event.stopPropagation()">
+      <button class="modal-close" type="button" (click)="closeModal()">×</button>
+
+      <h3>{{ activeFlow.title }}</h3>
+
+      <div class="prototype-container">
+        <img [src]="activeFlow.screens[currentScreenId]?.imageUrl" class="prototype-screen" alt="Wireframe screen" />
+
+        <div class="hotspots-overlay">
+          @for (hotspot of activeFlow.screens[currentScreenId]?.hotspots; track $index) {
+            <div
+              class="hotspot"
+              [style.left.%]="hotspot.x"
+              [style.top.%]="hotspot.y"
+              [style.width.%]="hotspot.width"
+              [style.height.%]="hotspot.height"
+              (click)="navigateToScreen(hotspot.targetScreenId)"
+              [title]="hotspot.tooltip"
+            ></div>
+          }
+        </div>
+      </div>
+
+      <button class="flow-reset" type="button" (click)="resetFlow()">Reset Flow</button>
+    </div>
+  </div>
+}

@@ -12,9 +12,11 @@ export class GalleryModalComponent {
 
   currentIndex = 0;
 
-  openModal(image: string): void {
-    this.currentIndex = this.images.indexOf(image);
-    this.selectedImage = image;
+  openModal(images: string[], index: number): void {
+    this.images = images;
+    this.currentIndex = index;
+    this.selectedImage = images[index];
+    console.log('Opening modal with images:', images, 'Starting at index:', index, 'image:', this.selectedImage);
   }
 
   closeModal(): void {

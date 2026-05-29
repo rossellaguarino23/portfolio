@@ -139,17 +139,17 @@
           </div>
 
           <div class="asset-carousel">
-            <div class="asset-card" (click)="openModal('/case-studies/taxeezy-1.png')">
+            <div class="asset-card" (click)="openModal(designSystemImages, 0)">
               <img src="/case-studies/taxeezy-1.png" alt="Typography & Colours" />
               <span>Typography & Colours</span>
             </div>
 
-            <div class="asset-card" (click)="openModal('/case-studies/taxeezy-2.png')">
+            <div class="asset-card" (click)="openModal(designSystemImages, 1)">
               <img src="/case-studies/taxeezy-2.png" alt="Buttons & Textfields" />
               <span>Buttons & Textfields</span>
             </div>
 
-            <div class="asset-card" (click)="openModal('/case-studies/taxeezy-3.png')">
+            <div class="asset-card" (click)="openModal(designSystemImages, 2)">
               <img src="/case-studies/taxeezy-3.png" alt="Selectors" />
               <span>Selectors</span>
             </div>
@@ -162,17 +162,17 @@
           </div>
 
           <div class="asset-carousel">
-            <div class="asset-card" (click)="openModal('/case-studies/taxeezy-home.png')">
+            <div class="asset-card" (click)="openModal(uiArchitectureImages, 0)">
               <img src="/case-studies/taxeezy-home.png" alt="Bladder Boss Dashboard and Module interface layout" />
               <span>Home & Modules</span>
             </div>
 
-            <div class="asset-card" (click)="openModal('/case-studies/taxeezy-Diary.png')">
+            <div class="asset-card" (click)="openModal(uiArchitectureImages, 1)">
               <img src="/case-studies/taxeezy-Diary.png" alt="Symptom logging and tracking interaction flows" />
               <span>Diary Flow</span>
             </div>
 
-            <div class="asset-card" (click)="openModal('/case-studies/taxeezy-profile.png')">
+            <div class="asset-card" (click)="openFlow(taxeezyProfileFlow)">
               <img src="/case-studies/taxeezy-profile.png" alt="Patient profile and metrics configuration view" />
               <span>Profile Hub</span>
             </div>
@@ -181,7 +181,8 @@
       </div>
     </div>
   </div>
-  <app-gallery-modal [images]="galleryImages" [selectedImage]="selectedImage"> </app-gallery-modal>
+  <app-interactive-flow-modal [activeFlow]="currentFlow" (closeFlow)="onFlowClose()"> </app-interactive-flow-modal>
+  <app-gallery-modal> </app-gallery-modal>
 </section>
 
 <!-- 04 THE IMPACT -->
