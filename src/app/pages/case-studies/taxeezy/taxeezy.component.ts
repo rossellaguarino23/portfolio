@@ -11,11 +11,11 @@ export class TaxeezyComponent {
     @ViewChild(GalleryModalComponent) galleryModal!: GalleryModalComponent;
 
   galleryImages: string[] = [
-    '/case-studies/BladderBoss-1.png',
-    '/case-studies/BladderBoss-2.png',
-    '/case-studies/BladderBoss-3.png',
-    '/case-studies/BladderBoss-Home.png',
-    '/case-studies/BladderBoss-Diary.png',
+    '/case-studies/taxeezy-1.png',
+    '/case-studies/taxeezy-2.png',
+    '/case-studies/taxeezy-3.png',
+    '/case-studies/taxeezy-home.png',
+    '/case-studies/taxeezy-profile.png',
     '/case-studies/BladderBoss-Profile.png',
   ];
 
