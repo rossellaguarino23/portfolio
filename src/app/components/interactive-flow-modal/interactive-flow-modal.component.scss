@@ -1,6 +1,6 @@
 .prototype-container {
   position: relative;
-  border-radius: 22px;
+  border-radius: 3px;
   overflow: hidden;
   background: var(--surface-100);
 }
@@ -16,39 +16,57 @@ h3 {
   pointer-events: none;
 }
 
+@keyframes hotspot-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
 .hotspot {
   position: absolute;
   box-sizing: border-box;
-  border: 2px solid rgba(145, 255, 0, 0.8);
-  border-radius: 1rem;
-  background: rgba(145, 255, 0, 0.12);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(145, 255, 0, 0.15);
+
   cursor: pointer;
   pointer-events: auto;
+  transform: translate(-50%, -50%);
   transition:
-    transform 0.2s ease,
-    border-radius 0.3s ease,
-    background-color 0.2s ease;
-  animation: hotspot-pulse 1.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
-}
-
-.hotspot:hover {
-  transform: scale(1.02);
-  background: rgba(145, 255, 0, 0.24);
-}
-
-@keyframes hotspot-pulse {
-  0% {
-    border-width: 2px;
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    border: 2px solid rgba(145, 255, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
   }
-  50% {
-    border-width: 5px;
-  }
-  100% {
-    border-width: 2px;
+
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: rgba(145, 255, 0, 0.35);
+    box-shadow: 0 0 10px rgba(145, 255, 0, 0.4);
+    &::after {
+      animation: hotspot-ripple 1.2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    }
   }
 }
 
 .flow-reset {
+  display: none;
   margin-top: 1.5rem;
   padding: 0.95rem 1.4rem;
   background: var(--brat);

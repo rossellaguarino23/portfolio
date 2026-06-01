@@ -14,8 +14,6 @@
               class="hotspot"
               [style.left.%]="hotspot.x"
               [style.top.%]="hotspot.y"
-              [style.width.%]="hotspot.width"
-              [style.height.%]="hotspot.height"
               (click)="navigateToScreen(hotspot.targetScreenId)"
               [title]="hotspot.tooltip"
             ></div>
@@ -23,7 +21,7 @@
         </div>
       </div>
 
-      <button class="flow-reset" type="button" (click)="resetFlow()">Reset Flow</button>
+      <!--<button class="flow-reset" type="button" (click)="resetFlow()">Reset Flow</button>-->
     </div>
   }
 </div>
