@@ -23,8 +23,8 @@ export class TaxeezyComponent {
 
   currentFlow: InteractiveFlow | null = null;
 
-  openModal(images: string[], index: number): void {
-    this.galleryModal.openModal(images, index);
+  openModal(images: string[], index: number, title: string = ''): void {
+    this.galleryModal.openModal(images, index, title);
   }
 
   openFlow(flow: InteractiveFlow): void {

@@ -8,21 +8,41 @@
 
 .gallery-close {
   position: absolute;
-  top: 2rem;
+  top: 1rem;
   right: 2rem;
 }
 
-.gallery-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  &.prev {
-    left: 2rem;
+.gallery-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "prev img next";
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+  width: 100%;
+  @media (max-width: 768px) {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: "img img" "prev next";
+    gap: 1rem;
+    padding: 0 1rem;
   }
+}
 
+.modal-img-container {
+  grid-area: img;
+}
+
+.gallery-nav {
+  flex-shrink: 0;
+  margin: 0.5rem;
+  &.prev {
+    grid-area: prev;
+    justify-self: start;
+  }
   &.next {
-    right: 2rem;
+    grid-area: next;
+    justify-self: end;
   }
 }
 

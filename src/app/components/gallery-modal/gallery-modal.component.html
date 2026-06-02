@@ -1,15 +1,20 @@
 <div class="gallery-modal modal-overlay" [class.active]="selectedImage" (click)="onOverlayClick($event)">
   @if (selectedImage) {
     <div class="modal-content">
-      <button class="modal-button gallery-close" type="button" (click)="closeModal()">×</button>
-
-      <button class="modal-button gallery-nav prev" type="button" (click)="prevImage()">←</button>
-
-      <div class="modal-img-container gallery-content">
-        <img class="modal-img" [src]="selectedImage" alt="Expanded preview" />
+      <div class="d-flex justify-content-between align-items-center m-3">
+        <h3>{{ galleryTitle }}</h3>
+        <button class="modal-button gallery-close" type="button" (click)="closeModal()">×</button>
       </div>
 
-      <button class="modal-button gallery-nav next" type="button" (click)="nextImage()">→</button>
+      <div class="gallery-container">
+        <button class="modal-button gallery-nav prev" type="button" (click)="prevImage()">←</button>
+
+        <div class="modal-img-container gallery-content">
+          <img class="modal-img" [src]="selectedImage" alt="Expanded preview" />
+        </div>
+
+        <button class="modal-button gallery-nav next" type="button" (click)="nextImage()">→</button>
+      </div>
     </div>
   }
 </div>

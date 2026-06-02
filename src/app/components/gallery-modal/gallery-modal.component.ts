@@ -4,18 +4,20 @@ import { Component, Input, HostListener } from '@angular/core';
   selector: 'app-gallery-modal',
   imports: [],
   templateUrl: './gallery-modal.component.html',
-  styleUrl: './gallery-modal.component.scss'
+  styleUrl: './gallery-modal.component.scss',
 })
 export class GalleryModalComponent {
   @Input() images: string[] = [];
   @Input() selectedImage: string | null = null;
+  galleryTitle: string = '';
 
   currentIndex = 0;
 
-  openModal(images: string[], index: number): void {
+  openModal(images: string[], index: number, title: string = ''): void {
     this.images = images;
     this.currentIndex = index;
     this.selectedImage = images[index];
+    this.galleryTitle = title;
     console.log('Opening modal with images:', images, 'Starting at index:', index, 'image:', this.selectedImage);
   }
 
@@ -24,14 +26,12 @@ export class GalleryModalComponent {
   }
 
   nextImage(): void {
-    this.currentIndex =
-      (this.currentIndex + 1) % this.images.length;
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
     this.selectedImage = this.images[this.currentIndex];
   }
 
   prevImage(): void {
-    this.currentIndex =
-      (this.currentIndex - 1 + this.images.length) % this.images.length;
+    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     this.selectedImage = this.images[this.currentIndex];
   }
 
