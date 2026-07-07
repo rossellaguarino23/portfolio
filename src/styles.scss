@@ -247,7 +247,6 @@ ul {
     }
   }
 }
-
 .line {
   height: 1px;
   background-color: var(--white);
@@ -416,6 +415,38 @@ ul {
   }
 }
 //Case Studies
+.work-stats-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--grey);
+}
+
+.work-stats-inline strong {
+  font-family: var(--font-label);
+  color: var(--brat);
+  font-weight: 700;
+  margin-right: 0.3rem;
+}
+
+.work-stats-inline .stat-sep {
+  color: var(--light-grey);
+  opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+  .work-stats-inline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .work-stats-inline .stat-sep {
+    display: none;
+  }
+}
 .projects {
   background: var(--black);
   color: var(--white);
@@ -820,7 +851,7 @@ ul {
   p {
     font-family: var(--font-label);
     color: var(--brat);
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 }
 

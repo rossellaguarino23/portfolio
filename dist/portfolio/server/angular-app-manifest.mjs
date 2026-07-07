@@ -8,13 +8,13 @@ export default {
   entryPointToBrowserMapping: {
   "src/app/pages/home/home.component.ts": [
     {
-      "path": "chunk-NHCVG2WI.js",
+      "path": "chunk-CDIK3NDI.js",
       "dynamicImport": false
     }
   ],
   "src/app/pages/case-studies/bladder-boss/bladder-boss.component.ts": [
     {
-      "path": "chunk-ZJA6UYXF.js",
+      "path": "chunk-B7DIOSQE.js",
       "dynamicImport": false
     },
     {
@@ -30,13 +30,13 @@ export default {
   ],
   "src/app/pages/case-studies/avolta/avolta.component.ts": [
     {
-      "path": "chunk-N24WSP6X.js",
+      "path": "chunk-TQMPFLGD.js",
       "dynamicImport": false
     }
   ],
   "src/app/pages/case-studies/taxeezy/taxeezy.component.ts": [
     {
-      "path": "chunk-JIANXRWI.js",
+      "path": "chunk-KTCYUUYA.js",
       "dynamicImport": false
     },
     {
@@ -46,8 +46,8 @@ export default {
   ]
 },
   assets: {
-    'index.csr.html': {size: 7482, hash: '7d7563ee1f9f4b0f21e9f9138b37cdeb41cf500d194ee72efddcebb93c97f17d', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 2754, hash: 'f6909f7a707ddd83d6c656b10fff09fc1327f555934dbbf226f447ccecbc9b47', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'styles-AKN24RPU.css': {size: 248267, hash: 'Cp74D8Bc4DI', text: () => import('./assets-chunks/styles-AKN24RPU_css.mjs').then(m => m.default)}
+    'index.csr.html': {size: 7914, hash: '89730138c90c14afa9003b4bdabba55cf4ea8326f28c9ddf5cef4b78e454f59b', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 3186, hash: 'ce72dbb72f8e4e3affbe112c7bb954baf9fbd78eeb1a82348a10e88941968b55', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'styles-PYP76347.css': {size: 248732, hash: 'd13kFrjGcHs', text: () => import('./assets-chunks/styles-PYP76347_css.mjs').then(m => m.default)}
   },
 };
